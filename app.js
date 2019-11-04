@@ -6,6 +6,9 @@ const app = express();
 // setting view engine
 app.set('view engine0', 'ejs');
 
+//middleware
+app.use(express.static('./public'));
+
 /*
     ROUTES
 */
