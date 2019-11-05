@@ -18,11 +18,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //GET /
 app.get('/', function (req, res) {
-  res.render('home.ejs');
+  res.render('home.ejs',{ weather: 'Coming Soon' });
 })
 
-app.post('/', function (req, res) {console.log(req.body.city)
-  res.end();
+
+app.post('/', function (req, res) {let weatherNow = "The weather in " + req.body.city + ' is 70 C'
+let err = false
+  res.render('home.ejs',{ weather: weatherNow, error: err });
 
 })
  
