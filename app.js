@@ -21,7 +21,8 @@ app.get('/', function (req, res) {
   res.render('home.ejs');
 })
 
-app.post('/what', function (req, res) {console.log("hitting post route")
+app.post('/', function (req, res) {console.log(req.body.city)
+  res.end();
 
 })
  
