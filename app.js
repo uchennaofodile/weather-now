@@ -1,8 +1,13 @@
+// all packages we're using
+
 require('dotenv').config()
 const express = require('express')
 
+// initiate app
 const app = express();
 // const app2 = express();
+
+//assign api key to env var
 const apiKey = process.env.APIKEY;
 
 const bodyParser = require('body-parser');
@@ -12,7 +17,9 @@ const request = require('request');
 // setting view engine
 app.set('view engine', 'ejs');
 
-//middleware
+//middleware (app or route)
+
+//app middleware
 app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -20,12 +27,12 @@ app.use(bodyParser.urlencoded({extended: false}));
     ROUTES
 */
 
-//GET /
+//GET request for root = by default browser does get request/
 app.get('/', function (req, res) {
-  res.render('home.ejs',{ weather: null, error: null });
+  res.render('home.ejs',{ weather: null, error: null }); //both are null because we don't know them at the beginning
 });
 
-
+//handling post request for forward slash
 app.post('/', function (req, res) {
 
 
